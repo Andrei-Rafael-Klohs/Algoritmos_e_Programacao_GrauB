@@ -1,0 +1,89 @@
+/*
+Aluno: Andrei Rafael Padilha Klohs
+Disciplina: Algoritmos e Programação: Fundamentos
+Lista 05 - Exercício n° 1  
+Referente à uso de Arrays
+*/
+
+#include<stdio.h>
+#include<time.h>
+#include<stdlib.h>
+
+//PASSO 1 - Criar um vetor de dez números sorteados de 10 a 90
+
+int main ()
+{
+    srand(time(0));
+    int A[10]; // Criação do Array, mas sem atribuir valores ainda
+    int cont50 = 0; //Para o contador de "50" que será usado no futuro
+    int soma = 0;
+    float media = 0;
+    int produto = 1;
+    int maior, menor;
+
+    for (int i = 0; i < 10; i++) // Percorrer o Array e inicializar todas as posições
+    {
+        A[i] = 10 + rand() % 81;
+    
+    }
+   
+//PASSO 2 - Imprimir o vetor
+    for(int i = 0; i <10; i++)
+    {
+        printf("Seu %d° elemento é %d\n", i + 1, A[i]);
+        soma+=A[i];
+        produto*=A[i];
+    }
+
+//PASSO 3 - Verificar se existe o valor de 50 no vetor
+    for (int i = 0; i < 10; i++) 
+    {
+        if (A[i] == 50) 
+        cont50 ++;
+    }
+
+//PASSO 4 - Dizer se encontrou o número 50 ou não
+    if(cont50 > 0)
+    {
+        printf("Foi encontrado o número 50\n");
+        printf("O número 50 apareceu %d vezes\n",cont50); //Caso tenha aparecido
+    }
+    else
+    {
+        printf("Não foi encontrado o número 50\n");
+    }
+//PASSO 5 - Calcular a média dos valores
+    media = soma/10.0;
+    printf("A média é %f\n",media);
+
+//PASSO 6 - Encontrar o maior e o menor valor
+    maior = A[0]; 
+    menor = A[0]; 
+
+    for (int i = 1; i < 10; i++) { // Começa do segundo elemento
+        if (A[i] > maior) {
+            maior = A[i]; // Atualiza maior
+        }
+        if (A[i] < menor) {
+            menor = A[i]; // Atualiza menor
+        }
+    }
+
+    printf("O maior valor é %d\n", maior);
+    printf("O menor valor é %d\n", menor);
+
+//PASSO 7 - Imprimir a soma e o produto acumulado
+    printf("A soma é %d\n",soma);
+    printf("O produto acumulado é %d\n",produto);
+
+//PASSO 8 - Imprimir o vetor em ordem inversa   
+    for (int i = 9; i>=0; i--)
+    {
+        printf("Seu %d° elemento é %d\n", i + 1, A[i]);
+
+    }
+
+//PASSO 9 - Copiar inverso para outro vetor
+
+    return 0;
+}
