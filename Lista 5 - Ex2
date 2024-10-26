@@ -1,0 +1,36 @@
+/*
+Aluno: Andrei Rafael Padilha Klohs
+Disciplina: Algoritmos e Programação: Fundamentos
+Lista 05 - Exercício n° 2 
+Referente à uso de Arrays
+*/
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main()
+{
+    
+    //Parte 1 - Leitura de dados
+    int A[5];
+    int produto = 1;
+    
+        printf("Vamos iniciar com a leitura de cinco números\n");
+        
+  for (int i = 0; i < 5; i++) 
+  {
+        printf("Digite um número: ");
+        scanf("%d", &A[i]);
+  }
+  
+  //Parte 2 - Multiplicar o vetor pela sua posição
+  for (int i = 0; i<5; i++)
+  {
+      produto = A[i]*i;
+      printf("O valor é %d\n",produto);
+  }
+        
+    
+    return 0;
+}
