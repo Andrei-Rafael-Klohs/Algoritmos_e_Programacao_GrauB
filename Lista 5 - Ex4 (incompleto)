@@ -1,0 +1,36 @@
+/*
+Aluno: Andrei Rafael Padilha Klohs
+Disciplina: Algoritmos e Programação: Fundamentos
+Lista 05 - Exercício n° 4
+Referente à uso de Arrays
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() 
+{
+    int passos[5]; //Cria o Array para os dados
+    int total = 0;
+    float media = 0;
+    
+    //Passo 1 - Leitura dos dados
+    for (int i = 0; i<5; i++)
+    {
+       printf("Qual foi a quantidade de passos dado no dia %d? ",i+1);
+       scanf("%d",&passos[i]);
+       
+       total+=passos;
+    }
+    
+        media=total/7.0;
+        
+    //Passo 2 - Informa média e soma
+    printf("O total de passos dado na semana foi de %d",total);
+    printf("A média de passos dado na semana foi de %f",media);
+    
+    
+    
+    return 0;
+}
