@@ -1,0 +1,40 @@
+/*
+Aluno: Andrei Rafael Padilha Klohs
+Disciplina: Algoritmos e Programação: Fundamentos
+Lista 05 - Exercício n° 3
+Referente à uso de Arrays
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() 
+{
+    srand(time(0));
+    
+    int numeroLancamentos; 
+    int faces[6] = {0}; 
+    
+    // Lê o número de lançamentos
+    printf("Digite o número de lançamentos do dado: ");
+    scanf("%d", &numeroLancamentos);
+    
+    // Realiza os lançamentos
+    for (int i = 0; i < numeroLancamentos; i++) 
+    {
+        int resultado = rand() % 6; 
+        faces[resultado]++;  
+    }
+    
+    // Exibe os resultados
+    printf("Os resultados dos lançamentos foram:\n");
+    
+    for (int i = 0; i < 6; i++)
+    {
+        float percentual = (faces[i] / (double)numeroLancamentos) * 100;
+        printf("Face %d: %d vezes %f)\n", i + 1, faces[i], percentual);
+    }
+    
+    return 0;
+}
