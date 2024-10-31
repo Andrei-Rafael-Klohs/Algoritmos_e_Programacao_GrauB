@@ -1,0 +1,32 @@
+/*
+Aula de Algoritmos e Programação: Fundamentos
+Aluno: Andrei Rafael Padilha Klohs
+Lista 6 - Ex3
+Curso: Ciências Biológicas
+*/ 
+
+#include<stdio.h>
+
+int main()
+{
+    int M[4][4];
+
+    for (int i=0; i<4; i++)
+    {
+        for (int j=0; j<4; j++)
+        {
+            if (i == j)
+            {
+                M[i][j]= 1; //Se for linha principal, indices iguais, coloca o "1" pois é uma matriz identidade
+            }
+            else
+            {
+                M[i][j] = 0; //Todos os outros elementos, tirando a diagonal principal, serão zerados
+            }
+            printf(" %d ",M[i][j]); //Para printar, coloca a matriz e suas linhas, com os valores atribuidos ali pelo i e pelo j
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
