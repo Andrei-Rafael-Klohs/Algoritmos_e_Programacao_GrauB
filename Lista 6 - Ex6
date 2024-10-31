@@ -1,0 +1,40 @@
+/*
+Aula de Algoritmos e Programação: Fundamentos
+Aluno: Andrei Rafael Padilha Klohs
+Lista 6 - Ex6
+Curso: Ciências Biológicas
+*/ 
+
+#include<stdio.h>
+#include<time.h>
+#include<stdlib.h>
+
+int main()
+{
+    srand(time(0)); //Aleatoriza
+   
+    float notasAlunos[10][3]; //Não esqueça que precisa inserir o tipo de dado, "float", "int"...
+    for (int i=0; i<10; i++) //i para linha, esse for é para fazer o cálculo
+    {
+        notasAlunos[i][0] = rand() % 101/10.0; //Faz uma aleatorização para dar valores até cem, e depois dividir por dez para ter casas decimais
+        notasAlunos[i][1] = rand() % 101/10.0; //idem
+        notasAlunos[i][2] = (notasAlunos[i][0] + 2*notasAlunos[i][1])/3.0;
+    }
+    for(int i=0;i<10;i++)
+    {
+        printf("Aluno %d: ", i); //Dizer qual o aluno pelo índice
+
+        for(int j = 0; j<3; j++) //Imprimir valores das colunas e está percorrendo por linhas devido ao for acima
+        {
+            printf("%1.f ",notasAlunos[i][j]);
+
+        }
+        printf("\n");
+    }
+    
+    //FINALIZAR CÓDIGO PARA ESCREVER SE FOI APROVADO OU NÃO
+    
+    printf("Aluno %d: ",i);
+
+    return 0;
+}
