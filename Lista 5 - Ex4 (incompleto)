@@ -1,3 +1,4 @@
+
 /*
 Aluno: Andrei Rafael Padilha Klohs
 Disciplina: Algoritmos e Programação: Fundamentos
@@ -11,25 +12,49 @@ Referente à uso de Arrays
 
 int main() 
 {
-    int passos[5]; //Cria o Array para os dados
+    int passos[7]; //Cria o Array para os dados
     int total = 0;
     float media = 0;
+    int meta=10000;
+
     
     //Passo 1 - Leitura dos dados
-    for (int i = 0; i<5; i++)
+    for (int i = 0; i<7; i++)
     {
        printf("Qual foi a quantidade de passos dado no dia %d? ",i+1);
        scanf("%d",&passos[i]);
        
-       total+=passos;
+       total+=passos[i];
+       
+       if(passos[i]>10000)
+       {
+           
+       }
+       
     }
     
         media=total/7.0;
         
     //Passo 2 - Informa média e soma
-    printf("O total de passos dado na semana foi de %d",total);
-    printf("A média de passos dado na semana foi de %f",media);
+    printf("O total de passos dado na semana foi de %d\n",total);
+    printf("A média de passos dado na semana foi de %f\n",media);
     
+    //Passo 3 - Verificar se a meta foi atingida
+    printf("A meta de 10.000 passos foi atingida nos seguintes dias:\n ");
+    int atingiuMeta = 0; // Para verificar se algum dia atingiu a meta
+    for (int i = 0; i < 7; i++) 
+    {
+        if (passos[i] >= meta) 
+        {
+            printf("dia %d\n ", i + 1);  // Exibe o dia (1 a 7)
+            atingiuMeta = 1;
+        }
+    }
+
+    if (!atingiuMeta) 
+    {
+        printf("Nenhum dia atingiu a meta.");
+    }
     
     
     return 0;
