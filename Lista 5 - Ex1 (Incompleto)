@@ -84,6 +84,19 @@ int main ()
     }
 
 //PASSO 9 - Copiar inverso para outro vetor
+    int B[10];
+    // Copiar os valores do vetor A para B na ordem inversa
+    for (int i = 0; i < 10; i++) 
+    {
+        B[i] = A[9 - i];  // Atribui o valor de A na ordem inversa para B
+    }
 
+    // Imprimir os elementos de B
+    printf("Array invertido:\n");
+    for (int i = 0; i < 10; i++) {
+        printf("Seu %d° elemento é %d\n", i + 1, B[i]);
+    }
+
+//PASSO 10 - Criar outros dois vetores (VPares e Vimpares)
     return 0;
 }
