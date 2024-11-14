@@ -20,7 +20,11 @@ int main ()
     float media = 0;
     int produto = 1;
     int maior, menor;
-
+    int numPares = 0;
+    int numImpares = 0;
+    int vPares[10];
+    int vImpares[10];
+    
     for (int i = 0; i < 10; i++) // Percorrer o Array e inicializar todas as posições
     {
         A[i] = 10 + rand() % 81;
@@ -97,6 +101,33 @@ int main ()
         printf("Seu %d° elemento é %d\n", i + 1, B[i]);
     }
 
-//PASSO 10 - Criar outros dois vetores (VPares e Vimpares)
+
+//PASSO 10 - VPares e VImpares
+for (int i = 0; i < 10; i++) //Para os Pares
+    {
+        if (A[i] % 2 == 0)
+        { 
+            vPares[numPares] = A[i]; 
+            numPares++; 
+        } 
+        else // Número ímpar
+        { 
+            vImpares[numImpares] = A[i]; 
+            numImpares++; 
+        }
+    }
+
+    // Mostra os valores
+    printf("\nVetor de Pares:\n");
+    for (int i = 0; i < numPares; i++) {
+        printf("Seu %d° elemento é %d\n",i + 1, vPares[i]);
+    }
+
+    printf("\nVetor de Ímpares:\n");
+    for (int i = 0; i < numImpares; i++) {
+        printf("Seu %d° elemento é %d\n", i + 1, vImpares[i]);
+    }
+
     return 0;
 }
+    
