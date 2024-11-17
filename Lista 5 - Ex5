@@ -1,0 +1,58 @@
+/*
+Aluno: Andrei Rafael Padilha Klohs
+Disciplina: Algoritmos e Programação: Fundamentos
+Lista 05 - Exercício n° 5
+Referente à uso de Arrays
+*/
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main()
+{
+    srand(time(0));
+
+    int consumoAgua[30];  // Cria o vetor
+    int total = 0;        
+    float media;         
+    
+    // Preenche o vetor e calcula o total de consumo
+    for(int i = 0; i < 30; i++) 
+    {
+        consumoAgua[i] = 100 + rand() % 401; 
+        total += consumoAgua[i];              
+    }
+
+    // Inicializa as variáveis para maior e menor consumo
+    int menor = consumoAgua[0]; 
+    int maior = consumoAgua[0]; 
+    int diaMenor = 0;           
+    int diaMaior = 0;           
+
+    // Vê qual dia teve o maior e o menor consumo
+    for (int i = 1; i < 30; i++) // Começa do índice 1, pois o 0 já foi usado para inicializar
+    {
+        if (consumoAgua[i] < menor) 
+        {
+            menor = consumoAgua[i];   
+            diaMenor = i;             
+        }
+
+        if (consumoAgua[i] > maior) 
+        {
+            maior = consumoAgua[i];   
+            diaMaior = i;             
+        }
+    }
+
+    media = total / 30.0; 
+
+    // Imprime os dados
+    printf("O consumo do mês foi %d litros.\n", total);
+    printf("A média do mês foi %.2f litros.\n", media);
+    printf("O dia com maior consumo foi o dia %d com %d litros.\n", diaMaior + 1, maior);
+    printf("O dia com menor consumo foi o dia %d com %d litros.\n", diaMenor + 1, menor);
+
+    return 0;
+}
