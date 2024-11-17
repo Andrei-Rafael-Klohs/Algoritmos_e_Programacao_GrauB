@@ -11,26 +11,31 @@ Referente à uso de Arrays
 
 int main()
 {
+    int vetorA[5];
+    int produto=1;
+
+    //Leitura de dados  
+    printf("Vamos iniciar com a leitura de números\n");
+
+    for(int i = 0; i<5; i++)
+    {
+        printf("Digite um número, por gentileza: ");
+        scanf("%d",&vetorA[i]);
+
+    }
+
+    printf("\n");
+
+    //Faz o cálculo
+    printf("o produto do seu vetor multiplicado pela posição é a seguinte:\n ");
+
+    for(int i=0; i<5;i++)
+    {
+        produto=vetorA[i]*i;
+        printf("%d\n",produto);
+    }
+
     
-    //Parte 1 - Leitura de dados
-    int A[5];
-    int produto = 1;
-    
-        printf("Vamos iniciar com a leitura de cinco números\n");
-        
-  for (int i = 0; i < 5; i++) 
-  {
-        printf("Digite um número: ");
-        scanf("%d", &A[i]);
-  }
-  
-  //Parte 2 - Multiplicar o vetor pela sua posição
-  for (int i = 0; i<5; i++)
-  {
-      produto = A[i]*i;
-      printf("O valor é %d\n",produto);
-  }
-        
-    
+
     return 0;
 }
