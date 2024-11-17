@@ -5,114 +5,132 @@ Lista 05 - Exercício n° 1
 Referente à uso de Arrays
 */
 
-#include<stdio.h>
-#include<time.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-//PASSO 1 - Criar um vetor de dez números sorteados de 10 a 90
-
-int main ()
+int main()
 {
     srand(time(0));
-    int A[10]; // Criação do Array, mas sem atribuir valores ainda
-    int cont50 = 0; //Para o contador de "50" que será usado no futuro
-    int soma = 0;
+
+    // Criar um vetor sorteando números de 10 a 90
+    int vetorA[10]; // Cria o vetor inicialmente
+    int cont50 = 0;
     float media = 0;
-    int produto = 1;
-    int maior, menor;
-    int numPares = 0;
-    int numImpares = 0;
-    int vPares[10];
-    int vImpares[10];
-    
-    for (int i = 0; i < 10; i++) // Percorrer o Array e inicializar todas as posições
+    int soma = 0;
+    int produto=1; //Lembrar que produto não pode começar com 0, se nao dá problema maetático
+
+    // Preenche o vetor com números aleatórios e soma os valores
+    for(int i = 0; i < 10; i++) // Inicializa a variável i
     {
-        A[i] = 10 + rand() % 81;
-    
-    }
-   
-//PASSO 2 - Imprimir o vetor
-    for(int i = 0; i <10; i++)
-    {
-        printf("Seu %d° elemento é %d\n", i + 1, A[i]);
-        soma+=A[i];
-        produto*=A[i];
+        vetorA[i] = 10 + rand() % 80;
+        soma += vetorA[i];
+        produto *= vetorA[i];
     }
 
-//PASSO 3 - Verificar se existe o valor de 50 no vetor
-    for (int i = 0; i < 10; i++) 
+    // Imprime o vetor
+    for (int i = 0; i < 10; i++) // Inicializa a variável i
     {
-        if (A[i] == 50) 
-        cont50 ++;
+        printf("O elemento %d do vetor é %d\n", i + 1, vetorA[i]);
     }
 
-//PASSO 4 - Dizer se encontrou o número 50 ou não
-    if(cont50 > 0)
+    // Verifica quantas vezes o valor 50 aparece no vetor
+    for (int i = 0; i < 10; i++) // Inicializa a variável i
     {
-        printf("Foi encontrado o número 50\n");
-        printf("O número 50 apareceu %d vezes\n",cont50); //Caso tenha aparecido
+        if (vetorA[i] == 50)
+        {
+            cont50++;
+        }
+    }
+
+    // Verifica se o número 50 apareceu no vetor
+    if (cont50 > 0)
+    {
+        printf("O número 50 apareceu em seu vetor\n");
     }
     else
     {
-        printf("Não foi encontrado o número 50\n");
-    }
-//PASSO 5 - Calcular a média dos valores
-    media = soma/10.0;
-    printf("A média é %f\n",media);
-
-//PASSO 6 - Encontrar o maior e o menor valor
-    maior = A[0]; 
-    menor = A[0]; 
-
-    for (int i = 1; i < 10; i++) { // Começa do segundo elemento
-        if (A[i] > maior) {
-            maior = A[i]; // Atualiza maior
-        }
-        if (A[i] < menor) {
-            menor = A[i]; // Atualiza menor
-        }
+        printf("O número 50 não apareceu em seu vetor\n");
     }
 
-    printf("O maior valor é %d\n", maior);
-    printf("O menor valor é %d\n", menor);
+    // Apresenta quantas vezes o número 50 apareceu
+    if (cont50 > 0)
+    {
+        printf("O número 50 apareceu %d vez(es)\n", cont50);
+    }
 
-//PASSO 7 - Imprimir a soma e o produto acumulado
+    // Calcula e imprime a média dos valores do vetor
+    media = soma / 10.0; 
+    printf("A média dos valores do vetor é: %.2f\n", media); 
+
+    //Encontre o menor e o maior
+    int menor = vetorA[0];//Inicia a variável menor com o primeiro elemento do Array
+    int maior = vetorA[0];//Inicia a variável maior com o primeiro elemento do Array
+
+    for(int i =1; i<10; i++)
+    {
+        if (vetorA[i]<menor) //ele vai sempre comparar com o menor, que nesse caso é o primeiro, e substituir se for necessário
+        {
+            menor = vetorA[i];
+        }
+
+        if (vetorA[i]>maior)
+        {
+            maior = vetorA[i];
+        }
+    }
+
+    printf("O maior valor encontrado foi %d\n",maior);
+    printf("O menor valor encontrado foi %d\n",menor);
+
+    //Imprimir a soma e o produto acumulado dos valores dos vetores
+
     printf("A soma é %d\n",soma);
     printf("O produto acumulado é %d\n",produto);
 
-//PASSO 8 - Imprimir o vetor em ordem inversa   
-    for (int i = 9; i>=0; i--)
+    printf("\n");
+    //Imprimir o vetor na ordem inversa
+    printf("Array na ordem invertida\n");
+     for (int i = 9; i>=0; i--) //Note que começa com 9, e vai descendo (i--)
     {
-        printf("Seu %d° elemento é %d\n", i + 1, A[i]);
+        printf("Seu %d° elemento é %d\n", i + 1, vetorA[i]);
 
     }
 
-//PASSO 9 - Copiar inverso para outro vetor
-    int B[10];
-    // Copiar os valores do vetor A para B na ordem inversa
-    for (int i = 0; i < 10; i++) 
+    //Copiar inverso para outro vetor
+    int vetorB[10]; //Cria vetor
+
+    for(int i=0; i<10; i++)
     {
-        B[i] = A[9 - i];  // Atribui o valor de A na ordem inversa para B
+        vetorB[i] = vetorA[9-i]; //Vai puxar pelo último vetor do A e com base no i
+ 
+    }
+    
+    printf("\n");
+
+    printf("Array invertido\n");
+    for(int i=0; i<10; i++)
+    {
+        printf("O elemento %d do vetor é %d\n",i+1,vetorB[i]);
+
     }
 
-    // Imprimir os elementos de B
-    printf("Array invertido:\n");
-    for (int i = 0; i < 10; i++) {
-        printf("Seu %d° elemento é %d\n", i + 1, B[i]);
-    }
+    //Cria vetores de pares e impares
+    int vPares[10];
+    int vImpares[10];
+    int numPares=0;
+    int numImpares=0;
 
-
-//PASSO 10 - VPares e VImpares
 for (int i = 0; i < 10; i++) //Para os Pares
     {
-        if (A[i] % 2 == 0)
+        if (vetorA[i] % 2 == 0)
         { 
-            vPares[numPares] = A[i]; 
+            vPares[numPares] = vetorA[i]; 
             numPares++; 
         } 
         else // Número ímpar
         { 
-            vImpares[numImpares] = A[i]; 
+            vImpares[numImpares] = vetorA[i]; 
             numImpares++; 
         }
     }
@@ -128,6 +146,6 @@ for (int i = 0; i < 10; i++) //Para os Pares
         printf("Seu %d° elemento é %d\n", i + 1, vImpares[i]);
     }
 
+    
     return 0;
 }
-    
