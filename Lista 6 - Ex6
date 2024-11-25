@@ -20,21 +20,24 @@ int main()
         notasAlunos[i][1] = rand() % 101/10.0; //idem
         notasAlunos[i][2] = (notasAlunos[i][0] + 2*notasAlunos[i][1])/3.0;
     }
-    for(int i=0;i<10;i++)
+
+   for(int i=0; i<10; i++)
     {
-        printf("Aluno %d: ", i); //Dizer qual o aluno pelo índice
-
-        for(int j = 0; j<3; j++) //Imprimir valores das colunas e está percorrendo por linhas devido ao for acima
-        {
-            printf("%1.f ",notasAlunos[i][j]);
-
+        printf("Aluno %d: ",i);
+        for(int j=0; j<3; j++)
+        {   
+            printf("%.1f ",notasAlunos[i][j]);
         }
-        printf("\n");
+        if (notasAlunos[i][2] >= 6.0)
+        {
+            printf("Aprovado!\n");
+        }
+        else
+        {
+            printf("Reprovado!\n");
+        }
     }
-    
-    //FINALIZAR CÓDIGO PARA ESCREVER SE FOI APROVADO OU NÃO
-    
-    printf("Aluno %d: ",i);
+
 
     return 0;
 }
