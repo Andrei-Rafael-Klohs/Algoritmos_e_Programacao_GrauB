@@ -1,0 +1,91 @@
+/*
+Aula de Algoritmos e Programação: Fundamentos
+Aluno: Andrei Rafael Padilha Klohs
+Lista 6 - Ex4
+Curso: Ciências Biológicas
+*/ 
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() 
+{
+    // Definindo o número de linhas e colunas
+    int linhas = 4;
+    int colunas = 6;
+
+    // Matriz 4x6
+    int matriz[4][6];
+
+    // Inicializa o gerador de números aleatórios
+    srand(time(0));
+
+    // Preenche a matriz com valores aleatórios entre -10 e 10
+    for (int i = 0; i < 4; i++) 
+    {
+        for (int j = 0; j < 6; j++) 
+        {
+            matriz[i][j] = -10 + rand() % 21;  // Gera números entre -10 e 10
+        }
+    }
+
+    // Exibe a matriz gerada
+    printf("Matriz 4x6 gerada:\n");
+    for (int i = 0; i < linhas; i++) {
+        for (int j = 0; j < colunas; j++) 
+        {
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Calculando as somas
+
+    // a) Soma dos elementos da segunda linha (índice 1)
+    int somaSegundaLinha = 0;
+    for (int j = 0; j < colunas; j++) 
+    {
+        somaSegundaLinha += matriz[1][j];
+    }
+
+    // b) Soma dos elementos da quinta coluna (índice 4)
+    int somaQuintaColuna = 0;
+    for (int i = 0; i < linhas; i++) 
+    {
+        somaQuintaColuna += matriz[i][4];
+    }
+
+    // c) Soma da multiplicação dos elementos da primeira linha pelos da quarta linha
+    int somaMultiplicacaoPrimeiraQuarta = 0;
+    for (int j = 0; j < colunas; j++) 
+    {
+        somaMultiplicacaoPrimeiraQuarta += matriz[0][j] * matriz[3][j];
+    }
+
+    // d) Soma dos elementos das colunas com índices pares
+    int somaColunasPares = 0;
+    for (int i = 0; i < linhas; i++) {
+        for (int j = 0; j < colunas; j += 2) {  // Colunas com índice par (0, 2, 4)
+            somaColunasPares += matriz[i][j];
+        }
+    }
+
+    // e) Soma dos elementos das linhas com índices ímpares
+    int somaLinhasImpares = 0;
+    for (int i = 1; i < linhas; i += 2) {  // Linhas com índice ímpar (1 e 3)
+        for (int j = 0; j < colunas; j++) {
+            somaLinhasImpares += matriz[i][j];
+        }
+    }
+
+    // Exibindo os resultados
+    printf("\nResultados das somas:\n");
+    printf("a) Soma dos elementos da segunda linha: %d\n", somaSegundaLinha);
+    printf("b) Soma dos elementos da quinta coluna: %d\n", somaQuintaColuna);
+    printf("c) Soma da multiplicação dos elementos da primeira linha pelos da quarta linha: %d\n", somaMultiplicacaoPrimeiraQuarta);
+    printf("d) Soma dos elementos das colunas com índices pares: %d\n", somaColunasPares);
+    printf("e) Soma dos elementos das linhas com índices ímpares: %d\n", somaLinhasImpares);
+
+    return 0;
+}
