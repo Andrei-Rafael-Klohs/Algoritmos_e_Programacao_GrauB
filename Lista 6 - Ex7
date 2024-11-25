@@ -1,0 +1,63 @@
+/*
+Aula de Algoritmos e Programação: Fundamentos
+Aluno: Andrei Rafael Padilha Klohs
+Lista 6 - Ex7
+Curso: Ciências Biológicas
+*/ 
+
+#include<stdio.h>
+#include<time.h>
+#include<stdlib.h>
+
+int main()
+{
+    srand(time(0)); //Aleatoriza
+
+    int M[5][5]; //Cria matriz
+    
+    for (int j = 0; j<5; j++)
+    {
+        M[0][j] = - 100 + rand() % 200; //vou sortear números entre -100 e 1000
+        M[1][j] = - 100 + rand() % 200;
+        M[2][j] = - 100 + rand() % 200; 
+        M[3][j] = - 100 + rand() % 200; 
+        M[4][j] = - 100 + rand() % 200; 
+    }   
+
+    for (int i=0; i<5; i++)
+    {
+        M[i][0] = - 100 + rand() % 200; 
+        M[i][1] = - 100 + rand() % 200; 
+        M[i][2] = - 100 + rand() % 200; 
+        M[i][3] = - 100 + rand() % 200; 
+        M[i][4] = - 100 + rand() % 200; 
+     
+
+    }
+
+      // Imprimir a matriz
+    for (int i = 0; i < 5; i++) // Percorrer as linhas
+    {
+        for (int j = 0; j < 5; j++) // Percorrer as colunas
+        {
+            printf("%d ", M[i][j]);
+        }
+        printf("\n");
+        
+    }
+    
+    printf("\n");
+    printf("Nova matriz com números invertidos\n");
+     // Imprimir a matriz
+    for (int i = 0; i < 5; i++) // Percorrer as linhas
+    {
+        for (int j = 0; j < 5; j++) // Percorrer as colunas
+        {
+            printf("%d ", M[i][j]*-1);
+        }
+        printf("\n");
+        
+    }
+
+    return 0;
+}
