@@ -1,0 +1,70 @@
+/*
+Aula de Algoritmos e Programação: Fundamentos
+Aluno: Andrei Rafael Padilha Klohs
+Lista 6 - Ex4
+Curso: Ciências Biológicas
+*/ 
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() 
+{
+    // Definindo o número de linhas e colunas
+    int linhas = 4;
+    int colunas = 6;
+
+    // Matriz 4x6
+    int matriz[linhas][colunas];
+
+    // Inicializa o gerador de números aleatórios
+    srand(time(0));
+
+    // Preenche a matriz com valores aleatórios entre -10 e 10
+    for (int i = 0; i < linhas; i++) 
+    {
+        for (int j = 0; j < colunas; j++) 
+        {
+            matriz[i][j] = -10 + rand() % 21;  // Gera números entre -10 e 10
+        }
+    }
+
+    // Exibe a matriz gerada
+    printf("Matriz 4x6 gerada:\n");
+    for (int i = 0; i < linhas; i++) 
+  {
+        for (int j = 0; j < colunas; j++) 
+        {
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Encontrando o maior e o menor valor na matriz
+    int maiorValor = matriz[0][0];  // Inicializa com o primeiro valor da matriz
+    int menorValor = matriz[0][0];  // Inicializa com o primeiro valor da matriz
+
+    for (int i = 0; i < linhas; i++) 
+      {
+        for (int j = 0; j < colunas; j++)
+      {
+            // Atualiza o maior valor, se necessário
+            if (matriz[i][j] > maiorValor)
+            {
+                maiorValor = matriz[i][j];
+            }
+            // Atualiza o menor valor, se necessário
+            if (matriz[i][j] < menorValor)
+            {
+                menorValor = matriz[i][j];
+            }
+        }
+    }
+
+    // Exibindo os resultados
+    printf("\nMaior valor da matriz é %d\n", maiorValor);
+    printf("Menor valor da matriz é %d\n", menorValor);
+
+    return 0;
+}
